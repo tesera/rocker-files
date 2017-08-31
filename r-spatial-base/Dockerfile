@@ -10,7 +10,12 @@ MAINTAINER Alex Chubaty <alex.chubaty@gmail.com>
 RUN apt-get update -qq \
   && apt-get dist-upgrade -y
 
+## Prevent r-base-core from updating past 3.3.3
+RUN apt-mark hold r-base-core
+
+
 ## additional build dependencies for R spatial packages
+## Note: install older version of r-cran-rgl which is compatible with 3.3.3
 RUN apt-get install -y --no-install-recommends -t unstable \
       bwidget \
       ca-certificates \
@@ -31,14 +36,17 @@ RUN apt-get install -y --no-install-recommends -t unstable \
       netcdf-bin \
       pandoc pandoc-citeproc \
       qpdf \
-      r-cran-rgl \
+      r-cran-rgl=0.96.0-1 \
       r-cran-tkrplot \
       xauth \
       xfonts-base \
-      xvfb \
-  && apt-get clean \
+      xvfb
+
+RUN apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /var/lib/apt/lists
+
+RUN R --version
 
 ## install devtools
 RUN install2.r devtools remotes
