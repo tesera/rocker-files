@@ -21,18 +21,27 @@ RUN apt-get install -y --no-install-recommends -t unstable \
       gdal-bin \
       git \
       gsl-bin \
+      libcairo2-dev \
       libcurl4-openssl-dev \
       libgdal-dev \
       libgeos-dev \
-      libgeos++-dev \
+      libgit2-dev \
+      libmagick++-dev \
       libproj-dev \
       libspatialite-dev \
+      libprotobuf-dev \
+      libprotoc-dev \
+      libssh2-1-dev \
       libssl-dev \
       libudunits2-dev \
       libv8-dev \
       libxml2-dev \
+      libxt-dev \
       netcdf-bin \
       pandoc pandoc-citeproc \
+      protobuf-compiler \
+      python-gdal \
+      python3-gdal \
       qpdf \
       r-cran-tkrplot \
       xauth \
@@ -51,6 +60,8 @@ RUN install2.r devtools remotes
 
 ## install R spatial packages && cleanup
 RUN xvfb-run -a install.r \
+      classInt \
+      gdalUtils \
       geoR \
       ggmap \
       ggvis \
@@ -60,11 +71,12 @@ RUN xvfb-run -a install.r \
       maptools \
       plotKML \
       RandomFields \
+      RColorBrewer \
       rgdal \
       rgeos \
       sf \
-      shapefiles \
       sp \
+      spacetime \
       spatstat \
       raster \
       rasterVis \
