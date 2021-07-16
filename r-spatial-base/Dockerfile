@@ -1,7 +1,7 @@
 ## Emacs, make this -*- mode: sh; -*-
 
 ## start with the Docker 'R-base' Debian-based image
-FROM r-base:3.3.2
+FROM r-base:4.1.0
 
 ## maintainer of this script
 MAINTAINER Alex Chubaty <alex.chubaty@gmail.com>
@@ -13,7 +13,7 @@ RUN apt-get update -qq \
 ## Prevent r-base-core from updating past 3.3.3
 RUN apt-mark hold r-base-core
 
-## additional build dependencies for R spatial packages
+#### additional build dependencies for R spatial packages
 RUN apt-get install -y --no-install-recommends -t unstable \
       bwidget \
       ca-certificates \
@@ -40,7 +40,7 @@ RUN apt-get install -y --no-install-recommends -t unstable \
       netcdf-bin \
       pandoc pandoc-citeproc \
       protobuf-compiler \
-      python-gdal \
+##      python-gdal \
       python3-gdal \
       qpdf \
       r-cran-tkrplot \
@@ -49,14 +49,14 @@ RUN apt-get install -y --no-install-recommends -t unstable \
       xvfb
 
 ## Note: install older version of r-cran-rgl which is compatible with 3.3.3
-RUN apt-get install -y --no-install-recommends r-cran-rgl=0.96.0-1
+RUN apt-get install -y --no-install-recommends r-cran-rgl
 
 RUN apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /var/lib/apt/lists
 
 ## install devtools
-RUN install2.r devtools remotes
+RUN install.r devtools remotes
 
 ## install R spatial packages && cleanup
 RUN xvfb-run -a install.r \
@@ -81,5 +81,5 @@ RUN xvfb-run -a install.r \
       raster \
       rasterVis \
       rts \
-  && installGithub.r s-u/fastshp \
+##  && installGithub.r s-u/fastshp \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
