@@ -1,9 +1,9 @@
 #!/bin/sh
 
 FORCE_REBUILD=false
-CONTAINER="tesera/r-spatial-base"
+CONTAINER="tesera/r-spatial-base:4.1.0"
 
-aws ecr get-login-password --region us-west-2 --profile hris | docker login --username AWS --password-stdin 073688489507.dkr.ecr.us-west-2.amazonaws.com
+aws ecr get-login-password --region us-west-2 --profile hris-development | docker login --username AWS --password-stdin 940145619248.dkr.ecr.us-west-2.amazonaws.com
 
 usage() { printf "Usage: $0 [-f]\n  -f  Force docker re-build from nothing. (uses docker --no-cache)\n" 1>&2; exit 1; }
 
