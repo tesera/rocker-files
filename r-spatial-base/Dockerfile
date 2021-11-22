@@ -83,3 +83,8 @@ RUN xvfb-run -a install.r \
       rts \
 ##  && installGithub.r s-u/fastshp \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
+
