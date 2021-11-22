@@ -17,3 +17,8 @@ docker run --rm -it achubaty/r-spatial-base bash
 xvfb-run -a R
 ```
 
+## Container versions
+
+`hris-development/tesera/r-spatial-base:4.1.0` : updates FROM r-base:3.3.2 to FROM r-base:4.1.0
+
+`hris-development/tesera/r-spatial-base:4.1.1` : adds AWSCLI v2
