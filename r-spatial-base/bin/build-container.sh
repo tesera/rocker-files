@@ -1,7 +1,7 @@
 #!/bin/sh
 
 FORCE_REBUILD=false
-CONTAINER="tesera/r-spatial-base:4.1.1"
+CONTAINER="tesera/r-spatial-base:4.4.1"
 
 aws ecr get-login-password --region us-west-2 --profile hris-development | docker login --username AWS --password-stdin 940145619248.dkr.ecr.us-west-2.amazonaws.com
 

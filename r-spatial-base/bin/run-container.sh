@@ -8,7 +8,7 @@
 #   DEBUG       Gives a prompt in the container instead of running the container.
 #   COPY        Indicates if the sample data should be copied onto the data folder.
 
-CONTAINER="tesera/r-spatial-base:4.1.1"
+CONTAINER="tesera/r-spatial-base:4.4.1"
 
 AWS_ACCESS_KEY_ID=$(aws --profile default configure get aws_access_key_id)
 AWS_SECRET_ACCESS_KEY=$(aws --profile default configure get aws_secret_access_key)
