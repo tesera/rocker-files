@@ -51,7 +51,9 @@ RUN apt-get install -y --no-install-recommends -t unstable \
       r-cran-tkrplot \
       xauth \
       xfonts-base \
-      xvfb
+      xvfb \
+      libharfbuzz-dev \
+      libfribidi-dev
 
 # ## Note: install older version of r-cran-rgl which is compatible with 3.3.3
 # RUN apt-get install -y --no-install-recommends r-cran-rgl
