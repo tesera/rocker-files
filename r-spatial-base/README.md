@@ -24,3 +24,5 @@ xvfb-run -a R
 `hris-development/tesera/r-spatial-base:4.1.1` : adds AWSCLI v2
 
 `hris-development/tesera/r-spatial-base:4.4.1` : updates FROM r-base:4.1.0 to FROM r-base:4.4.1
+
+`hris-development/tesera/r-spatial-base:4.4.2` : updates r-spatial-base:4.4.1 with jq

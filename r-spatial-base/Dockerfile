@@ -55,6 +55,9 @@ RUN apt-get install -y --no-install-recommends -t unstable \
       libharfbuzz-dev \
       libfribidi-dev
 
+## install jq - Workflows and dp-manage-files use jq
+RUN apt-get install -y jq
+
 # ## Note: install older version of r-cran-rgl which is compatible with 3.3.3
 # RUN apt-get install -y --no-install-recommends r-cran-rgl
 # 
