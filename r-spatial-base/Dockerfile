@@ -65,6 +65,12 @@ RUN touch /tmp/stamp \
  && find /usr/local/lib/R/site-library -name '*.so' -newer /tmp/stamp -exec strip --strip-debug {} + \
  && rm -rf /tmp/stamp /tmp/downloaded_packages /tmp/*.rds
 
+## install R lidar packages that need xvfb
+RUN touch /tmp/stamp \
+ && xvfb-run -a install2.r --error --skipinstalled lidR geometry concaveman \
+ && find /usr/local/lib/R/site-library -name '*.so' -newer /tmp/stamp -exec strip --strip-debug {} + \
+ && rm -rf /tmp/stamp /tmp/downloaded_packages /tmp/*.rds
+
 ## install AWS CLI v2 and remove the installer
 RUN curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip \
  && unzip -q /tmp/awscliv2.zip -d /tmp \
