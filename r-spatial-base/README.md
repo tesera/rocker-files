@@ -26,3 +26,5 @@ xvfb-run -a R
 `hris-development/tesera/r-spatial-base:4.4.1` : updates FROM r-base:4.1.0 to FROM r-base:4.4.1
 
 `hris-development/tesera/r-spatial-base:4.4.2` : updates r-spatial-base:4.4.1 with jq
+
+`hris-development/tesera/r-spatial-base:4.6.2` : updates FROM r-base:4.4.1 to FROM r-base:4.6.2 (fewer base image vulnerabilities); slims the image by merging apt and AWS CLI install/cleanup into single layers; installs R packages with `install2.r --error` in separate steps so failures stop the build; drops rgdal, rgeos and gdalUtils (archived on CRAN)
